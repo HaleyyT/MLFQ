@@ -1,0 +1,37 @@
+# build dirs
+/bin/
+/obj/
+/build/
+/out/
+/sim
+
+# compiler junk
+*.o
+*.obj
+*.d
+*.a
+*.so
+*.dll
+*.dylib
+*.exe
+*.out
+*.pch
+*.pdb
+
+# debug / crash
+core
+vgcore.*
+
+# macOS / editors / tooling
+.DS_Store
+*.dSYM/
+.vscode/
+.idea/
+*.swp
+tags
+compile_commands.json
+
+# local archives
+*.zip
+*.tar
+*.tar.gz
