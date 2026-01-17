@@ -20,10 +20,14 @@ Modern kernels use multi-level priority queues and time quanta to balance latenc
 - **L2:** round-robin with quantum, preemptible by L0/L1
 
 **Starvation-free aging (W):** boosts queues when the front job’s wait since last tail insert ≥ W
+
 **If L1 front ages:** promote all L1, then all L2 → L0. **Else if L2 front ages:** promote all L2 → L0
+
 **Correct per-tick order:** arrivals → aging → preemption → dispatch → run → finish/quantum → t++
+
 **Metrics:** average Turnaround, Waiting, Response (two-decimal output)
 Clean architecture: small queue ADT, clear helpers (demote/rotate/preempt), compact Sim state
+
 **Traceable:** every decision is logged (ARRIVE, DISPATCH, RUN, QEXP, PREEMPT, FINISH) for debugging and assessment
 
 ## What I solved
@@ -51,11 +55,17 @@ make         # builds ./bin/sim and ./sigtrap (child demo program)
 
 
 **Sample trace excerpt** (L1 preempted by L0; L2 round-robins):
+
 t=0 ARRIVE job=J0 -> L2
+
 t=0 DISPATCH job=J0 from=L2
+
 t=2 QEXP job=J0 L2 used=2 -> L2(tail)
+
 t=3 ARRIVE job=J1 -> L0
+
 t=3 PREEMPT job=J0 by L0/L1 arrival -> L2(head)
+
 t=3 DISPATCH job=J1 from=L0
 ...
 
