@@ -38,8 +38,7 @@ Clean architecture: small queue ADT, clear helpers (demote/rotate/preempt), comp
 - Deterministic RR: L2 quantum expiry requeues to tail with a fresh quantum.
 
 ## Quick start
-bash 
-```
+```bash 
 # Build
 make         # builds ./bin/sim and ./sigtrap (child demo program)
 
@@ -98,8 +97,7 @@ Trace-driven tests that match expected behavior:
 - Add I/O blocking and wake-ups to simulate mixed CPU/I/O workloads.
 
 ## Repo structure
-bash 
-```
+```text
     include/   # sim.h, queue.h, util.h, proc.h
     src/       # sim_core.c, queue.c, util.c, main.c, sigtrap.c, proc.c, 
     tests/     # input cases used in verification
